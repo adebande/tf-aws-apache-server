@@ -23,6 +23,8 @@ resource "aws_instance" "main" {
 
   key_name = aws_key_pair.ssh.key_name
 
+  user_data = file("scripts/user-data.sh")
+
   tags = {
     Name = "${var.name_prefix}-main"
   }
